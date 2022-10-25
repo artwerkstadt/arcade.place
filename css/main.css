@@ -1,0 +1,144 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: "";
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html, body {
+    background: #000;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.grid {
+    perspective: 70rem;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+}
+
+.grid:after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(-90deg, rgb(119, 255, 119) 2px, transparent 1px),
+                linear-gradient(rgb(119, 255, 119) 2px, transparent 1px) repeat;
+    background-size: 10rem 10rem,
+    10rem 10rem;
+    animation: grid-animation 8s linear infinite;
+    transform: rotateX(75deg);
+    box-shadow: inset 0 350px 350px 150px #000;
+    bottom: -10rem;
+    position: relative;
+}
+
+* {
+    font-family: "Windows Command Prompt";
+    text-transform: uppercase;
+}
+
+main {
+    color: #77ff77;
+    text-align: center;
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+h1 {
+    font-family: 'NiseAstroCity';
+    font-size: 4.6em;
+    max-width: 90rem;
+    margin: 1em auto 0;
+}
+
+p {
+    text-transform: uppercase;
+    margin: 1em 0;
+}
+
+form {
+    font-size: 1rem;
+}
+
+form label {
+    padding: .5em .5em;
+    display: block;
+}
+
+form input {
+    padding: .5em .5em;
+}
+
+audio {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+    bottom: 1em;
+    left: 0;
+    right: 0;
+}
+
+@keyframes grid-animation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}

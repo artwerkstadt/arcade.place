@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'NiseAstroCity';
+    src: url('../fonts/NiseAstroCity.woff2') format('woff2'),
+         url('../fonts/NiseAstroCity.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Windows Command Prompt';
+    src: url('../fonts/Windows-Command-Prompt.woff2') format('woff2'),
+         url('../fonts/Windows-Command-Prompt.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
