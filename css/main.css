@@ -83,22 +83,47 @@ html, body {
     width: 100%;
     height: 100%;
     position: absolute;
-    overflow: hidden;
     top: 0;
 }
 
-.grid:after {
-    content: "";
-    display: block;
+.grid__background-container {
     height: 150%;
     width: 200%;
-    background: linear-gradient(-90deg, rgb(119, 255, 119) 2px, transparent 1px), linear-gradient(rgb(119, 255, 119) 2px, transparent 1px) repeat;
-    background-size: 8rem 7rem, 10rem 7rem;
-    animation: grid-animation 8s linear infinite;
     transform: translateX(-50%) rotateX(75deg);
-    box-shadow: inset 0 150px 150px 50px #000;
     left: 50%;
-    position: relative;
+    position: relative;  
+    overflow: hidden;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.grid__background-container::after {
+    content: "";
+    display: block;
+    box-shadow: inset 0 150px 150px 50px #000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.grid__background {
+    background: linear-gradient(-90deg, rgb(119, 255, 119) 2px, transparent 1px), linear-gradient(rgb(119, 255, 119) 2px, transparent 1px) repeat;
+    background-size: 8rem 8rem, 8rem 8rem;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.grid__background-1 {
+    animation: grid-animation-1 8s linear infinite;
+}
+
+.grid__background-2 {
+    animation: grid-animation-2 8s linear infinite;
 }
 
 .marquee {
@@ -200,11 +225,20 @@ audio {
     right: 0;
 }
 
-@keyframes grid-animation {
+@keyframes grid-animation-2 {
     0% {
-        background-position: 0 0;
+        transform: translateY(0);
     }
     100% {
-        background-position: 0 100%;
+        transform: translateY(100%);
+    }
+}
+
+@keyframes grid-animation-1 {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
