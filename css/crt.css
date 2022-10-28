@@ -160,11 +160,6 @@
     pointer-events: none;
 }
 
-.crt marquee,
-.crt .credits,
-.crt .insert-coin,
-.crt form,
-.crt .date,
-.crt .glitch {
+.crt__text {
     animation: textShadow 1.6s infinite;
 }
