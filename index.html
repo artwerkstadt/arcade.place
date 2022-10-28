@@ -3,11 +3,11 @@
 <head>
     <link rel="preload" href="/fonts/NiseAstroCity.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/Windows-Command-Prompt.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/css/animations.css" />
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/glitch.css" />
-    <link rel="stylesheet" href="/css/crt.css" />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/animations.css?v=1" />
+    <link rel="stylesheet" href="/css/fonts.css?v=1" />
+    <link rel="stylesheet" href="/css/glitch.css?v=1" />
+    <link rel="stylesheet" href="/css/crt.css?v=1" />
+    <link rel="stylesheet" href="/css/main.css?v=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>.:: arcade.place | arcadia xmas'22</title>
 </head>
@@ -18,8 +18,8 @@
         <div class="content">
             <div class="menu-bar no-interaction">
                 <div class="insert-coin"><span class="crt__text">Insert Coin(s)</span></div>
-                <button class="button mute-button"><img src="./img/mute-icon.svg"></button>
-                <button class="button listen-button is-hidden"><img src="./img/speaker-icon.svg"></button>
+                <button class="button mute-button is-hidden"><img src="./img/mute-icon.svg?v=1"></button>
+                <button class="button listen-button"><img src="./img/speaker-icon.svg?v=1"></button>
                 <div class="credits ">Credit(s) 0</div>
             </div>
 
@@ -38,7 +38,7 @@
     </main>
 
     <audio id="player" preload loop>
-        <source src="tracks/punch-deck-edit.mp3" type="audio/mpeg">
+        <source src="tracks/punch-deck-edit.mp3?v=1" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     
@@ -73,12 +73,12 @@
     const muteButton = document.querySelector(".mute-button");
     const listenButton = document.querySelector(".listen-button");
     muteButton.onclick = () => {
-        audioPlayer.pause();
+        audioPlayer.play();
         muteButton.classList.add("is-hidden");
         listenButton.classList.remove("is-hidden");
     }
     listenButton.onclick = () => {
-        audioPlayer.play();
+        audioPlayer.pause();
         listenButton.classList.add("is-hidden");
         muteButton.classList.remove("is-hidden");
     }
