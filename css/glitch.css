@@ -1,8 +1,23 @@
 /* copyright and credits to https://codepen.io/marcellegane/pen/GoGVQe */
 
+.glitch__container {
+    height: 40%;
+    width: 100%;
+    display: flex;
+}
+
 .glitch {
     position: relative;
     mix-blend-mode: lighten;
+    max-width: 400px;
+    margin: auto auto 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .glitch {
+        max-width: 600px;
+        font-size: 4rem;
+    }
 }
 
 .glitch:before,
