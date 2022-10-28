@@ -109,7 +109,7 @@ html, body {
 
 .grid__background {
     background: linear-gradient(-90deg, rgb(119, 255, 119) 2px, transparent 1px), linear-gradient(rgb(119, 255, 119) 2px, transparent 1px) repeat;
-    background-size: 8rem 8rem, 8rem 8rem;
+    background-size: 20% 20%, 20% 20%;
     position: absolute;
     height: 100%;
     width: 100%;
