@@ -70,66 +70,56 @@ html, body {
     text-align: center;
     font-size: 2.5rem;
     position: relative;
-    z-index: 10;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     height: 100%;
 }
 
 .grid {
-    perspective: 35rem;
-    transform-style: preserve-3d;
-    width: 100%;
-    height: 100%;
+    top: -400px;
+    bottom: -400px;
+    left: -400px;
+    right: -400px;
     position: absolute;
-    top: 0;
+
+    background-image: linear-gradient(rgb(119, 255, 119) 2px, transparent 2px),
+        linear-gradient(90deg, rgb(119, 255, 119) 2px, transparent 2px);
+    background-size: 1px 4%, 4% 1px;
+    background-position:0 0, 0 0;
+    image-rendering: pixelated;
+    animation: throughSpace 2s linear;
+    animation-iteration-count: infinite;
 }
 
-.grid__background-container {
-    height: 150%;
-    width: 200%;
-    transform: translateX(-50%) rotateX(75deg);
-    left: 50%;
-    position: relative;  
-    overflow: hidden;
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-.grid__background-container::after {
-    content: "";
+.grid-fade {
     display: block;
-    box-shadow: inset 0 150px 150px 50px #000;
     position: absolute;
+    top: 40%;
+    box-shadow: inset 0 135px 50px -100px #000;
     width: 100%;
     height: 100%;
 }
-
-.grid__background {
-    background: linear-gradient(-90deg, rgb(119, 255, 119) 2px, transparent 1px), linear-gradient(rgb(119, 255, 119) 2px, transparent 1px) repeat;
-    background-size: 20% 20%, 20% 20%;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border: 0;
-    margin: 0;
-    padding: 0;
+  
+  
+@keyframes throughSpace{
+    0%{
+        transform: perspective(400px) rotateX(75deg) translateY(0%);
+    }
+    100%{
+        transform: perspective(400px) rotateX(75deg) translateY(4%);
+    }
 }
 
-.grid__background-1 {
-    animation: grid-animation-1 8s linear infinite;
-}
-
-.grid__background-2 {
-    animation: grid-animation-2 8s linear infinite;
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .marquee {
     display: block;
     margin: auto 0;
     font-size: 2rem;
+    color: #ff1493;
 }
 
 @media only screen and (min-width: 768px) {
@@ -140,7 +130,7 @@ html, body {
 
 .date {
     display: block;
-    margin: auto 0;
+    margin: 0;
 }
 
 .credits {
@@ -161,7 +151,6 @@ html, body {
 .success {
     display: none;
     font-size: 1.5rem;
-    margin-top: auto;
     padding-bottom: 50px;
 }
 
@@ -194,12 +183,22 @@ p {
     margin: 1em 0;
 }
 
-.signup-form {
-    font-size: 1rem;
+.request-invite {
+    font-size: 1.5rem;
     margin-top: auto;
-    padding-bottom: 50px;
+    margin-bottom: 10px;
+}
+
+.request-invite.is-hidden {
+    display: none;
+}
+
+.signup-form {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
     display: block;
-    z-index: 15;
+    z-index: 11;
+    width: 100%;
 }
 
 .signup-form.is-hidden {

@@ -7,30 +7,28 @@
     <link rel="stylesheet" href="/css/glitch.css" />
     <link rel="stylesheet" href="/css/crt.css" />
     <link rel="stylesheet" href="/css/main.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>.:: arcade.place | arcadia xmas'22</title>
 </head>
 <body class="">
     <main class="container crt">
-        <div class="grid">
-            <div class="grid__background-container">
-                <div class="grid__background grid__background-2"></div>
-                <div class="grid__background grid__background-1"></div>
+        <div class="grid"></div>
+        <div class="grid-fade"></div>
+        <div class="content">
+            <div class="credits crt__text">Credit(s) 0</div>
+            <div class="insert-coin"><span class="crt__text">Insert Coin(s)</span></div>
+            <div class="glitch__container">
+                <h1 class="glitch crt__text">Arcadia Xmas'22</h1>
             </div>
+            <p class="date crt__text">12/25/22</p>
+            <marquee class="marquee crt__text">Wind Jammers | Puzzle Bobble | Golden Eye | Street Fighter 2X | Teenage Mutant Ninja Turtles: Turtles in Time | Street Fighter Zero 3 | Elevator Action Returns | Fifa 2X | Mega Man X | Mario Kart 64 | Tony Hawk's Pro Skater 1 + 2</marquee>
+            <p class="request-invite crt__text">Request invite:</p>
+            <form class="signup-form">
+                <input type="text" id="email" name="email" placeholder="E-Mail">
+                <input type="submit" name="submit" value="Request">
+            </form>
+            <div class="success crt__text">Press Start</div>
         </div>
-        <div class="credits crt__text">Credit(s) 0</div>
-        <div class="insert-coin crt__text">Insert Coin(s)</div>
-        <div class="glitch__container">
-            <h1 class="glitch crt__text">Arcadia Xmas'22</h1>
-        </div>
-        <p class="date crt__text">12/25/22</p>
-        <marquee class="marquee crt__text">Wind Jammers | Puzzle Bubble | Golden Eye | Street Fighter 2X | Teenage Mutant Ninja Turtles: Turtles in Time | Street Fighter Zero 3 | Elevator Action Returns | Fifa 2X | Mega Man X | Mario Kart 64 | Tony Hawk's Pro Skater 1 + 2</marquee>
-        <form class="signup-form">
-            <label for="email" class="crt__text">Request invite:</label>
-            <input type="text" id="email" name="email" placeholder="E-Mail">
-            <input type="submit" name="submit" value="Request">
-        </form>
-        <div class="success crt__text">Press Start</div>
     </main>
     <!-- Audioplayer disabled for now until we find an autoplay solution -->
     <!-- <audio controls="controls" autoplay="autoplay" hidden="hidden" preload="auto" loop="loop">
@@ -42,11 +40,13 @@
     const credits = document.querySelector(".credits");
     const success = document.querySelector(".success");
     const signupForm = document.querySelector(".signup-form");
+    const requestInvite = document.querySelector(".request-invite");
     
     signupForm.onsubmit = (e) => {
         e.preventDefault();
         credits.innerText = "Credit(s) 1";
         signupForm.classList.add("is-hidden");
+        requestInvite.classList.add("is-hidden");
         success.classList.add("is-visible");
     }
 </script>
