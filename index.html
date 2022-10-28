@@ -3,6 +3,7 @@
 <head>
     <link rel="preload" href="/fonts/NiseAstroCity.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/Windows-Command-Prompt.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/animations.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/glitch.css" />
     <link rel="stylesheet" href="/css/crt.css" />
@@ -12,18 +13,23 @@
 </head>
 <body>
     <main class="container crt">
-        <div class="grid"></div>
+        <div class="grid no-interaction"></div>
         <div class="grid-fade"></div>
         <div class="content">
-            <div class="credits crt__text">Credit(s) 0</div>
-            <div class="insert-coin"><span class="crt__text">Insert Coin(s)</span></div>
-            <div class="glitch__container">
+            <div class="menu-bar no-interaction">
+                <div class="insert-coin"><span class="crt__text">Insert Coin(s)</span></div>
+                <button class="button mute-button"><img src="./img/mute-icon.svg"></button>
+                <button class="button listen-button is-hidden"><img src="./img/speaker-icon.svg"></button>
+                <div class="credits ">Credit(s) 0</div>
+            </div>
+
+            <div class="glitch__container no-interaction">
                 <h1 class="glitch crt__text">Arcadia Xmas'22</h1>
             </div>
-            <p class="date crt__text">12/25/22</p>
-            <marquee class="marquee crt__text">Wind Jammers | Puzzle Bobble | Golden Eye | Street Fighter 2X | Teenage Mutant Ninja Turtles: Turtles in Time | Street Fighter Zero 3 | Elevator Action Returns | Fifa 2X | Mega Man X | Mario Kart 64 | Tony Hawk's Pro Skater 1 + 2</marquee>
-            <p class="request-invite crt__text">Request invite:</p>
-            <form class="signup-form">
+            <p class="date no-interaction">12/25/22</p>
+            <marquee class="marquee no-interaction">Wind Jammers | Puzzle Bobble | Golden Eye | Street Fighter 2X | Teenage Mutant Ninja Turtles: Turtles in Time | Street Fighter Zero 3 | Elevator Action Returns | Fifa 2X | Mega Man X | Mario Kart 64 | Tony Hawk's Pro Skater 1 + 2</marquee>
+            <p class="request-invite no-interaction">Request invite:</p>
+            <form class="signup-form no-interaction">
                 <input type="text" id="email" name="email" placeholder="E-Mail">
                 <input type="submit" name="submit" value="Request">
             </form>
@@ -31,8 +37,8 @@
         </div>
     </main>
 
-    <audio id="player" controls autoplay preload loop style="display: none;">
-        <source src="tracks/punch-deck-neon-drive.mp3" type="audio/mpeg">
+    <audio id="player" preload loop>
+        <source src="tracks/punch-deck-edit.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     
@@ -52,12 +58,29 @@
     }
 
     // starts audioplayer
+    const audioPlayer = document.getElementById('player');
     let bodyWasClicked = false;
     document.body.onclick = () => {
         if (!bodyWasClicked) {
             bodyWasClicked = true;
-            document.getElementById('player').play();
+            audioPlayer.play();
+            document.querySelectorAll(".no-interaction").forEach(item => {
+                item.classList.remove("no-interaction");
+            })
         }
+    }
+
+    const muteButton = document.querySelector(".mute-button");
+    const listenButton = document.querySelector(".listen-button");
+    muteButton.onclick = () => {
+        audioPlayer.pause();
+        muteButton.classList.add("is-hidden");
+        listenButton.classList.remove("is-hidden");
+    }
+    listenButton.onclick = () => {
+        audioPlayer.play();
+        listenButton.classList.add("is-hidden");
+        muteButton.classList.remove("is-hidden");
     }
 </script>
 </html>
