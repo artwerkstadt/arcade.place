@@ -1,19 +1,11 @@
 /* copyright and credits to https://codepen.io/marcellegane/pen/GoGVQe */
 
-.glitch__container:not(.no-interaction) {
-    height: 40%;
+.glitch__container {
+    min-height: 25vh;
     width: 100%;
     display: flex;
     animation: moveUp 0.25s;
 }
-
-.glitch__container.no-interaction {
-    height: 40%;
-    width: 100%;
-    display: flex;
-    transform: translateY(50px);
-}
-
 
 .glitch {
     position: relative;

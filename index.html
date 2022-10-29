@@ -13,27 +13,48 @@
 </head>
 <body>
     <main class="container crt">
-        <div class="grid no-interaction"></div>
+        <div class="grid"></div>
         <div class="grid-fade"></div>
         <div class="content">
-            <div class="menu-bar no-interaction">
-                <div class="insert-coin"><span class="crt__text">Insert Coin(s)</span></div>
-                <button class="button mute-button is-hidden"><img src="./img/mute-icon.svg?v=1"></button>
-                <button class="button listen-button"><img src="./img/speaker-icon.svg?v=1"></button>
+            <div class="menu-bar">
+                <div class="insert-coin blinking"><span class="crt__text">Insert Coin(s)</span></div>
+                <button class="menu-button mute-button"><img src="./img/mute-icon.svg?v=1"></button>
+                <button class="menu-button listen-button is-hidden"><img src="./img/speaker-icon.svg?v=1"></button>
                 <div class="credits ">Credit(s) 0</div>
             </div>
 
-            <div class="glitch__container no-interaction">
+            <div class="glitch__container">
                 <h1 class="glitch crt__text">Arcadia Xmas'22</h1>
             </div>
-            <p class="date no-interaction">12/25/22</p>
-            <marquee class="marquee no-interaction">Wind Jammers | Puzzle Bobble | Golden Eye | Street Fighter 2X | Teenage Mutant Ninja Turtles: Turtles in Time | Street Fighter Zero 3 | Elevator Action Returns | Fifa 2X | Mega Man X | Mario Kart 64 | Tony Hawk's Pro Skater 1 + 2</marquee>
-            <p class="request-invite no-interaction">Request invite:</p>
-            <form class="signup-form no-interaction">
-                <input type="text" id="email" name="email" placeholder="E-Mail">
-                <input type="submit" name="submit" value="Request">
+            <p class="date">12/25/22</p>
+            <marquee class="marquee">Wind Jammers | Puzzle Bobble | Golden Eye | Street Fighter 2X | Teenage Mutant Ninja Turtles: Turtles in Time | Street Fighter Zero 3 | Elevator Action Returns | Fifa 2X | Mega Man X | Mario Kart 64 | Tony Hawk's Pro Skater 1 + 2</marquee>
+            <p class="request-invite">Request invite:</p>
+
+            <form class="signup-form" action="https://gigmit.us21.list-manage.com/subscribe/post?u=c6a18c6424034f5df1d536671&amp;id=e507786393&amp;f_id=0094c1e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                <div id="mc_embed_signup">
+                    <div id="mc_embed_signup_scroll" class="signup-form__group">
+                        <div class="mc-field-group">
+                            <input type="email" value="" name="EMAIL" class="email signup-form__input" id="mce-EMAIL" required  placeholder="E-Mail">
+                        </div> 
+                        <div class="mc-field-group">
+                            <input type="number" name="GUESTS" min="0" class="signup-form__input signup-form__input__guests" required value="" id="mce-GUESTS"  placeholder="Guests">
+                        </div>
+                        <input type="submit" value="Request" name="subscribe" id="mc-embedded-subscribe">
+                        <div id="mce-responses" class="clear foot">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div> 
+                    </div>
+                </div>
             </form>
-            <div class="success crt__text">Press Start</div>
+
+            <div class="success crt__text">
+                <div class="success__scroller">
+                    <h2>Thanks ♥ <br> We received your request!</h2>
+                    <p class="success__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h2 class="press-start blinking"><span class="crt__text">Press Start</span></h2>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -43,44 +64,51 @@
     </audio>
     
 </body>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='GUESTS';ftypes[6]='number';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 <script>
-    const credits = document.querySelector(".credits");
-    const success = document.querySelector(".success");
-    const signupForm = document.querySelector(".signup-form");
-    const requestInvite = document.querySelector(".request-invite");
+    const audioPlayer = document.getElementById('player') || null;
+    const muteButton = document.querySelector(".mute-button");
+    const listenButton = document.querySelector(".listen-button");
 
-    signupForm.onsubmit = (e) => {
-        e.preventDefault();
-        credits.innerText = "Credit(s) 1";
-        signupForm.classList.add("is-hidden");
-        requestInvite.classList.add("is-hidden");
-        success.classList.add("is-visible");
-    }
+    const credits = document.querySelector(".credits") || null;
+    const insertCoin = document.querySelector(".insert-coin") || null;
+    const success = document.querySelector(".success") || null;
+    const marquee = document.querySelector(".marquee") || null;
+    const signupForm = document.querySelector(".signup-form") || null;
+    const requestInvite = document.querySelector(".request-invite") || null;
 
-    // starts audioplayer
-    const audioPlayer = document.getElementById('player');
-    let bodyWasClicked = false;
-    document.body.onclick = () => {
-        if (!bodyWasClicked) {
-            bodyWasClicked = true;
-            audioPlayer.play();
-            document.querySelectorAll(".no-interaction").forEach(item => {
-                item.classList.remove("no-interaction");
-            })
+    if (signupForm) {
+        signupForm.onsubmit = (e) => {
+            e.preventDefault();
+            const formIsValid = Array.from(e?.target?.querySelectorAll("input"))?.some(item => item?.required && item?.validity?.valid);
+
+            if (formIsValid) {
+                credits.innerText = `Credit(s) ${e?.target?.querySelector("input#mce-GUESTS").value}`;
+                insertCoin.children[0].innerText = "Hi-score 12252022";
+                insertCoin.classList.remove("blinking");
+                signupForm.classList.add("is-hidden");
+                requestInvite.classList.add("is-hidden");
+                success.classList.add("is-visible");
+                marquee.classList.add("is-hidden");
+                !audioPlayer.currentTime && audioPlayer.paused && playSong();
+            }
         }
     }
 
-    const muteButton = document.querySelector(".mute-button");
-    const listenButton = document.querySelector(".listen-button");
     muteButton.onclick = () => {
-        audioPlayer.play();
-        muteButton.classList.add("is-hidden");
-        listenButton.classList.remove("is-hidden");
+        playSong();
     }
+
     listenButton.onclick = () => {
         audioPlayer.pause();
         listenButton.classList.add("is-hidden");
         muteButton.classList.remove("is-hidden");
+    }
+
+    function playSong() {
+        audioPlayer.play();
+        muteButton.classList.add("is-hidden");
+        listenButton.classList.remove("is-hidden");
     }
 </script>
 </html>
