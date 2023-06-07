@@ -24,7 +24,7 @@
 
 .glitch:before,
 .glitch:after {
-    content: "Zock in den Mai";
+    content: "Game Over";
     position: absolute;
     top: 0;
     width: 100%;
